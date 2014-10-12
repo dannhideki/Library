@@ -1,11 +1,10 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
-    </head>
-    <body>
-        <h1>Biblioteca!</h1>
-        <a href="userList" >User Details</a><br />
-        <a href="bookList" >Book Details</a>
-    </body>
-</html>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+
+<t:page_template>
+  <jsp:attribute name="header">
+    <!-- Page specific JS / CSS goes here -->
+  </jsp:attribute>
+    <jsp:attribute name="content">
+        
+    </jsp:attribute>
+</t:page_template>

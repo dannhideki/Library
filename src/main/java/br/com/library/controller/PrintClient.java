@@ -13,9 +13,9 @@ public class PrintClient implements Print{
     @Override
     public void printer(UserRoles userRole) {
         System.out.println("##################  Print Client  #######################");
-        System.out.println("Tipo de usuario: "+userRole.getRole());
-        System.out.println("Nome: "+userRole.getUser().getFirstName());
-        System.out.println("Username: "+userRole.getUser().getUsername());
+//        System.out.println("Tipo de usuario: "+userRole.getRole());
+//        System.out.println("Nome: "+userRole.getUser().getFirstName());
+//        System.out.println("Username: "+userRole.getUser().getUsername());
     }
 
 }

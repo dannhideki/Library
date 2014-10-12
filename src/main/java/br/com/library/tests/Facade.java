@@ -72,10 +72,11 @@ public class Facade {
         bookService.insert(book2);
         bookService.insert(book3);
         
+        UserRoles userRoles = new UserRoles(TypeUser.ROLE_ADMIN);
+        UserRoles userRoles1 = new UserRoles(TypeUser.ROLE_USER);
         
-        
-        User user1 = new User("Daniel", "Cassi", "dann.hideki@gmail.com", "12-1234-5678", "dann", "123456", true);
-        User user2 = new User("Tarcisio", "Aparecido", "tar@gmail.com", "12-0987-6543", "tar", "654321", true);
+        User user1 = new User("Daniel", "Cassi", "dann.hideki@gmail.com", "12-1234-5678", "dann", "123456", true,userRoles);
+        User user2 = new User("Tarcisio", "Aparecido", "tar@gmail.com", "12-0987-6543", "tar", "654321", true,userRoles1);
         userDaoImpl.setSessionFactory(factory);
         userService.setUserDao(this.userDaoImpl);
         
@@ -85,9 +86,9 @@ public class Facade {
         userRolesDaoImpl.setSessionFactory(factory);
         userRolesService.setUserRolesDao(userRolesDaoImpl);
         
-        UserRoles userRoles = new UserRoles(user1, TypeUser.ROLE_ADMIN);
+        
         userRoles.setPrint(new PrintUser());
-        UserRoles userRoles1 = new UserRoles(user2, TypeUser.ROLE_USER);
+        
         userRoles1.setPrint(new PrintClient());
         
         //userRolesService.insert(userRoles);

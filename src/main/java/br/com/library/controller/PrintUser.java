@@ -14,8 +14,8 @@ public class PrintUser implements Print{
     public void printer(UserRoles userRole) {
         System.out.println("##################  Print Users #######################");
         System.out.println("Tipo de usuario: "+userRole.getRole());
-        System.out.println("Nome: "+userRole.getUser().getFirstName());
-        System.out.println("Username: "+userRole.getUser().getUsername());
+//        System.out.println("Nome: "+userRole.getUser().getFirstName());
+//        System.out.println("Username: "+userRole.getUser().getUsername());
     }
 
 }

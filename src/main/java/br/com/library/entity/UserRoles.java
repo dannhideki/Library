@@ -27,10 +27,6 @@ public class UserRoles implements Serializable {
     @GeneratedValue
     @Column(name = "USER_ROLE_ID")
     private int userRoleId;
-    
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id", unique= true, nullable=true, insertable=true, updatable=true)
-    private User user;
    
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
@@ -42,8 +38,7 @@ public class UserRoles implements Serializable {
     public UserRoles() {
     }
 
-    public UserRoles(User user, TypeUser role) {
-        this.user = user;
+    public UserRoles(TypeUser role) {
         this.role = role;
     }
     
@@ -57,14 +52,6 @@ public class UserRoles implements Serializable {
 
     public void setUserRoleId(int userRoleId) {
         this.userRoleId = userRoleId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public TypeUser getRole() {

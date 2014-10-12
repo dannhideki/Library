@@ -1,10 +1,13 @@
 package br.com.library.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,8 +38,12 @@ public class User implements Serializable{
     private String password;
     
     private boolean enabled;
+    
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="user_roles_id", unique= true, nullable=true, insertable=true, updatable=true)
+    private UserRoles userRolesId;
 
-    public User(String firstName, String lastName, String email, String phone, String username, String password, boolean enabled) {
+    public User(String firstName, String lastName, String email, String phone, String username, String password, boolean enabled,UserRoles userRoles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -44,6 +51,7 @@ public class User implements Serializable{
         this.username = username;
         this.password = password;
         this.enabled = enabled;
+        this.userRolesId = userRoles;
     }
 
     public User() {
@@ -112,4 +120,13 @@ public class User implements Serializable{
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public UserRoles getUserRolesId() {
+        return userRolesId;
+    }
+
+    public void setUserRolesId(UserRoles userRolesId) {
+        this.userRolesId = userRolesId;
+    }
+    
 }
