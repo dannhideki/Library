@@ -1,5 +1,6 @@
 package br.com.library.entity;
 
+import br.com.library.enums.TypeUser;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -7,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -39,8 +42,12 @@ public class User implements Serializable{
     
     private boolean enabled;
     
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_roles_id", unique= true, nullable=true, insertable=true, updatable=true)
+    @Transient
+    private TypeUser role;
+         
+    
+    @ManyToOne
+    @JoinColumn(name="user_roles_id")
     private UserRoles userRolesId;
 
     public User(String firstName, String lastName, String email, String phone, String username, String password, boolean enabled,UserRoles userRoles) {
@@ -128,5 +135,12 @@ public class User implements Serializable{
     public void setUserRolesId(UserRoles userRolesId) {
         this.userRolesId = userRolesId;
     }
-    
+
+    public TypeUser getRole() {
+        return role;
+    }
+
+    public void setRole(TypeUser role) {
+        this.role = role;
+    }
 }

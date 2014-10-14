@@ -1,0 +1,11 @@
+# Ignorar arquivos específicos
+.DS_Store
+Library.zip
+Library.~ml
+Library_old.uml
+nb-configuration.xml
+
+
+# Ignorar todos os diretórios e arquivos em um diretório.
+target/
+*.DS_Store

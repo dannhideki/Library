@@ -33,7 +33,7 @@
     <div class="clr"></div>
 </div>
 <header>
-    <h1>Library <span>BD Lab IV</span></h1>
+    <h1>Library BD <span>Lab IV and Design Patterns</span></h1>
     <nav class="library-demos">
         <a href="userList" class="current-demo">User Details</a>
         <a href="bookList" >Book Details</a>

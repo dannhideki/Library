@@ -2,6 +2,7 @@ package br.com.library.service;
 
 import br.com.library.dao.UserRolesDao;
 import br.com.library.entity.UserRoles;
+import br.com.library.enums.TypeUser;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,6 +42,11 @@ public class UserRolesServiceImpl implements UserRolesService{
 
     public void setUserRolesDao(UserRolesDao userRolesDao) {
         this.userRolesDao = userRolesDao;
+    }
+
+    @Override
+    public List<UserRoles> findByQuery(TypeUser query) {
+        return this.userRolesDao.findByQuery(query);
     }
 
 }

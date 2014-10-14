@@ -29,7 +29,7 @@ public class UserRoles implements Serializable {
     private int userRoleId;
    
     @Column(name = "role")
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private TypeUser role;
     
     @Transient

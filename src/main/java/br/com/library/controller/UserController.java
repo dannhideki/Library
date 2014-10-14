@@ -1,6 +1,8 @@
 package br.com.library.controller;
 
 import br.com.library.entity.User;
+import br.com.library.entity.UserRoles;
+import br.com.library.service.UserRolesService;
 import br.com.library.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    UserRolesService userRolesService;
 
     @RequestMapping("userForm")
     public ModelAndView getForm(@ModelAttribute User user) {
@@ -28,6 +32,9 @@ public class UserController {
 
     @RequestMapping("register")
     public ModelAndView registerUser(@ModelAttribute User user) {
+        List<UserRoles> roles = userRolesService.findByQuery(user.getRole());
+        user.setUserRolesId(roles.get(0));
+        user.setEnabled(true);
         userService.insert(user);
         return new ModelAndView("redirect:userList");
     }
@@ -53,6 +60,8 @@ public class UserController {
 
     @RequestMapping("userUpdate")
     public ModelAndView updateUser(@ModelAttribute User user) {
+        List<UserRoles> roles = userRolesService.findByQuery(user.getRole());
+        user.setUserRolesId(roles.get(0));
         userService.update(user);
         return new ModelAndView("redirect:userList");
     }

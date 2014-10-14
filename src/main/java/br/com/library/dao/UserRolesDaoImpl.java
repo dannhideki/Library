@@ -1,8 +1,10 @@
 package br.com.library.dao;
 
 import br.com.library.entity.UserRoles;
+import br.com.library.enums.TypeUser;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -65,5 +67,14 @@ public class UserRolesDaoImpl implements UserRolesDao{
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    @Override
+    public List<UserRoles> findByQuery(TypeUser query) {
+        Session session = sessionFactory.openSession();
+        String sql = "from UserRoles where role =:query ";
+        List<UserRoles> listObjects = session.createQuery(sql).setParameter("query", query).list();
+         
+        return listObjects;
     }
 }

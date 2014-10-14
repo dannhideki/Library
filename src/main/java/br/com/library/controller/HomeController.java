@@ -50,16 +50,9 @@ public class HomeController {
 	public ModelAndView updatePage(HttpServletRequest request) {
  
 		ModelAndView model = new ModelAndView();
- 
-		if (isRememberMeAuthenticated()) {
-			//send login for update
-			setRememberMeTargetUrlToSession(request);
-			model.addObject("loginUpdate", true);
-			model.setViewName("/login");
- 
-		} else {
-			model.setViewName("update");
-		}
+
+                model.setViewName("update");
+		
  
 		return model;
  
@@ -76,17 +69,7 @@ public class HomeController {
  
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
- 
-			//login form for update page
-                        //if login error, get the targetUrl from session again.
-			String targetUrl = getRememberMeTargetUrlFromSession(request);
-			System.out.println(targetUrl);
-			if(StringUtils.hasText(targetUrl)){
-				model.addObject("targetUrl", targetUrl);
-				model.addObject("loginUpdate", true);
-			}
- 
+			model.addObject("error", "Invalid username and password!"); 
 		}
  
 		if (logout != null) {
@@ -98,43 +81,11 @@ public class HomeController {
  
 	}
  
-	/**
-	 * Check if user is login by remember me cookie, refer
-	 * org.springframework.security.authentication.AuthenticationTrustResolverImpl
-	 */
-	private boolean isRememberMeAuthenticated() {
+
  
-		Authentication authentication = 
-                    SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null) {
-			return false;
-		}
+
  
-		return RememberMeAuthenticationToken.class.isAssignableFrom(authentication.getClass());
-	}
- 
-	/**
-	 * save targetURL in session
-	 */
-	private void setRememberMeTargetUrlToSession(HttpServletRequest request){
-		HttpSession session = request.getSession(false);
-		if(session!=null){
-			session.setAttribute("targetUrl", "/admin/update");
-		}
-	}
- 
-	/**
-	 * get targetURL from session
-	 */
-	private String getRememberMeTargetUrlFromSession(HttpServletRequest request){
-		String targetUrl = "";
-		HttpSession session = request.getSession(false);
-		if(session!=null){
-			targetUrl = session.getAttribute("targetUrl")==null?""
-                             :session.getAttribute("targetUrl").toString();
-		}
-		return targetUrl;
-	}
+
  
 	//for 403 access denied page
 	@RequestMapping(value = "/403", method = RequestMethod.GET)

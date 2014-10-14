@@ -1,3 +1,4 @@
+@import url('common.css');
 /* remove codrops styles and reset the whole thing */
 #container_demo{
 	 text-align: left;
@@ -294,8 +295,8 @@ p.change_link{
 #login{
 	position: absolute;
 	top: 0px;
-	width: 88%;	
-	padding: 18px 6% 60px 6%;
+	width: 100%;	
+	padding: 22px 6% 30px 6%;
 	margin: 0 0 35px 0;
 	background: rgb(247, 247, 247);
 	border: 1px solid rgba(147, 184, 189,0.8);
@@ -390,4 +391,42 @@ p.change_link{
 	color: #a94442;
 	background-color: #f2dede;
 	border-color: #ebccd1;
+}
+
+.cd-dropdown > span,
+.cd-dropdown ul li:nth-last-child(-n+3) span {
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.cd-dropdown ul {
+	position: absolute;
+	top: 0px;
+	width: 80%;
+}
+
+.cd-dropdown ul li {
+	position: absolute;
+	width: 80%;
+}
+
+.cd-active.cd-dropdown > span {
+	color: #066A75;
+}
+
+.cd-active.cd-dropdown > span,
+.cd-active.cd-dropdown ul li span {
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.cd-active.cd-dropdown ul li span {
+	-webkit-transition: all 0.2s linear 0s;
+	-moz-transition: all 0.2s linear 0s;
+	-ms-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+	transition: all 0.2s linear 0s;
+}
+
+.cd-active.cd-dropdown ul li span:hover {
+	background: #066A75;
+	color: #fff;
 }

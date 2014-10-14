@@ -1,19 +1,17 @@
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="content" fragment="true" %>
+<%@ attribute name="js" fragment="true" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-        <title>${pageTitle}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
-        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
-        <meta name="author" content="Daniel Hideki" />
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <title>Library BD Lab IV and Design Patterns</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
         <jsp:invoke fragment="header"/>
+        <jsp:invoke fragment="js"/>
     </head>
   <body>
     <div class="container">
