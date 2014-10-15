@@ -7,7 +7,6 @@
 <t:page_template>
     <jsp:attribute name="js">
         <script src="js/modernizr.custom.63321.js"></script>
-        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="js/jquery.dropdown.js"></script>
     </jsp:attribute>
     <jsp:attribute name="content">
@@ -18,7 +17,7 @@
                 <div id="wrapper">
 
                     <div id="login" class="animate form">
-                        <h1> Sign up </h1> 
+                        <h1> User Register Form </h1> 
                         <c:url var="userRegistration" value="saveUser.html" />
                         <form:form id="registerForm" modelAttribute="user" method="post" action="register">
                             <table>  
@@ -73,7 +72,7 @@
                                 <tr>
                                     <td>    
                                         <p class="signin button"> 
-                                            <input type="submit" value="Sign up"/> 
+                                            <input type="submit" value="Register"/> 
                                         <p>
 
                                     </td>

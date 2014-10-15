@@ -15,10 +15,7 @@
     <jsp:attribute name="content">  
         <center>  
             <div id="container_demo" >
-                <a class="hiddenanchor" id="toregister"></a>
-                <a class="hiddenanchor" id="tologin"></a>
                 <div id="wrapper">
-
                     <div id="login" class="animate form">
                         <h1> Edit Details </h1> 
                         <c:url var="userRegistration" value="saveUser.html" />  

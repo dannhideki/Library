@@ -3,6 +3,7 @@ package br.com.library.entity;
 import br.com.library.enums.TypeBook;
 import br.com.library.interfaces.Matches;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -68,7 +70,6 @@ public class Book implements Serializable{
     public Date getDateRelease() {
         return dateRelease;
     }
-
     public void setDateRelease(Date dateRelease) {
         this.dateRelease = dateRelease;
     }
