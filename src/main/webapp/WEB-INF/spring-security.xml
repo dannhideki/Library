@@ -40,7 +40,7 @@
 		  users-by-username-query=
 		    "SELECT U.USERNAME, U.PASSWORD, U.ENABLED FROM USERS U WHERE U.USERNAME = ?"
 		  authorities-by-username-query=
-		    "SELECT U.USERNAME, UR.ROLE from USER_ROLES UR, USERS U where u.USER_ROLES_ID = UR.USER_ROLE_ID AND U.USERNAME = ?" />
+		    "SELECT U.USERNAME, UR.ROLE from USER_ROLES UR JOIN USERS U on U.USER_ROLES_ID = UR.USER_ROLE_ID where U.USERNAME = ?" />
 	  </authentication-provider>
 	</authentication-manager>
  

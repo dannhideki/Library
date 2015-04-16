@@ -3,15 +3,12 @@ package br.com.library.entity;
 import br.com.library.enums.TypeUser;
 import br.com.library.interfaces.Print;
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -21,7 +18,7 @@ import javax.persistence.Transient;
  * @since 18/08/2014
  */
 @Entity
-@Table(name = "user_roles")
+@Table(name = "USER_ROLES")
 public class UserRoles implements Serializable {
     @Id
     @GeneratedValue

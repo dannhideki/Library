@@ -3,7 +3,6 @@ package br.com.library.entity;
 import br.com.library.enums.TypeBook;
 import br.com.library.interfaces.Matches;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -22,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @since 17/08/2014
  */
 @Entity
-@Table(name = "book")
+@Table(name = "BOOK")
 public class Book implements Serializable{
     
     @Id
